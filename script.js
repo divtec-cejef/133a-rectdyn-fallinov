@@ -7,32 +7,28 @@
  */
 
 'use strict'; // Demande un interprétation stricte du code
+console.log('Coucou');
 
-// Récupération des éléments HTML utiles
-const formRect = document.getElementById('formRect');
+// Récupération des éléments HTML
+const form = document.getElementById('formRect');
 const txtHauteur = document.getElementById('hauteur');
-const divRectangle = document.getElementById('rectangle');
-console.log(formRect, txtHauteur, divRectangle);
+const divRectange = document.getElementById('rectangle');
+console.log(form, txtHauteur, divRectange);
 
-/**
- * Fonction appelée lors de l'envoi du formulaire
- */
 function miseAJour(event) {
   // Stoppe l'envoi du formulaire
   event.preventDefault();
-  let hauteur = parseInt(txtHauteur.value); // Retourne un entier ou NaN
-  if(isNaN(hauteur)) {
+  let hauteur = parseInt(txtHauteur.value);
+  // Si hauteur n'est PAS un nombre
+  if (isNaN(hauteur)) {
     alert('Entrez un nombre !');
-    return; // Stoppe le script, code de la fonction
+    return; // Stoppe la fonction
   }
-  divRectangle.style.height = hauteur + 'px';
+  divRectange.style.height = hauteur + 'px';
 }
 
-// Ecoute l'envoi du formulaire
-formRect.addEventListener('submit', miseAJour);
-
-// formRect.addEventListener('submit', () => {
-//   event.preventDefault();
-//   alert('miseAJour');
+// Ecoute l'envoi (submit) du formulaire
+form.addEventListener('submit', miseAJour);
+// form.addEventListener('submit', () => {
+//   alert('Envoyé !');
 // });
-
